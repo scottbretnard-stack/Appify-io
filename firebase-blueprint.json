@@ -1,0 +1,29 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "Mobile app project configuration",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "name": { "type": "string" },
+        "primaryColor": { "type": "string" },
+        "theme": { "type": "string", "enum": ["light", "dark"] },
+        "showControls": { "type": "boolean" },
+        "pushNotifications": { "type": "boolean" },
+        "iconUrl": { "type": "string" },
+        "splashUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "url", "name"]
+    }
+  },
+  "firestore": {
+    "projects/{projectId}": {
+      "schema": "Project",
+      "description": "User mobile app projects"
+    }
+  }
+}
